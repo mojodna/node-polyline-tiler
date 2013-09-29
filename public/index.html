@@ -1,0 +1,44 @@
+<html>
+<head>
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.css" />
+<!--[if lte IE 8]>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.5/leaflet.ie.css" />
+<![endif]-->
+<script src="http://cdn.leafletjs.com/leaflet-0.5/leaflet.js"></script>
+<script src="http://mlevans.github.com/leaflet-hash/javascripts/leaflet-hash.js"></script>
+<style type="text/css">
+body, #map {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  /* background-image: url(/images/transparent.png); */
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script>
+  var map = L.map('map');
+
+  if (!location.hash) {
+    // provide a default location in the hash, not the L.map (since that will
+    // load before L.Hash takes control)
+    location.hash = "#14/44.57539/-71.96221";
+  }
+
+   if (!location.search) {
+    location.search = "?ecaoGxbfvLZcA@UY_B]g@YKSSI]YQ[JW@WQEo@BsAKk@K]SSUm@Ce@TYPMNYHi@Nc@LMRBh@AR]Fe@POPc@NoAKa@m@eAScA]Bs@L[EO@MIAURc@PqAN]Bm@e@Yc@g@EUc@{@G_@KW[[IUMK_@m@@SJQDa@";
+  }
+
+  new L.Hash(map);
+
+  L.tileLayer('/{z}/{x}/{y}.png?q=' + location.search.substr(1), {
+    maxZoom: 18,
+    attribution: '',
+    unloadInvisibleTiles: true,
+    detectRetina: true
+  }).addTo(map);
+</script>
+</body>
+</html>
+
